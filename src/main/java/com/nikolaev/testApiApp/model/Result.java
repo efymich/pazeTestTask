@@ -3,6 +3,7 @@ package com.nikolaev.testApiApp.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -17,7 +18,7 @@ import org.springframework.stereotype.Component;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Result {
     String id;
-    String paymentType = "DEPOSIT";
+    String paymentType = "DEPOваSIT";
     String state;
     String paymentMethod = "BASIC_CARD";
 
@@ -25,7 +26,7 @@ public class Result {
     @DecimalMax(value = "999999.99",inclusive = false,message = "should be less than 999999.99")
     Double amount;
 
-    @NotNull
+    @NotNull(message = "should be not null")
     String currency;
     String redirectUrl;
 }

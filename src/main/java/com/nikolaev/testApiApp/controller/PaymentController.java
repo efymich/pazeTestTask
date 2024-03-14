@@ -38,11 +38,12 @@ public class PaymentController {
 
     @PostMapping(value = "/payments", consumes = {"application/x-www-form-urlencoded"})
     public String pay(@Valid @ModelAttribute("paymentBodyRequest") PaymentApiDTO paymentRequestBody,
-                      @Value("${paze-api.bearer-token}") String token,
                       BindingResult bindingResult,
+                      @Value("${paze-api.bearer-token}") String token,
                       Model model) {
 
         if (bindingResult.hasErrors()) {
+            model.addAttribute("currencies", currencies);
             return "payment";
         }
 
@@ -52,7 +53,6 @@ public class PaymentController {
             return "redirect:" + response.getResult().getRedirectUrl();
         } catch (FeignException e) {
             if (e.status() == HttpStatus.BAD_REQUEST.value() || e.status() == HttpStatus.UNAUTHORIZED.value()) {
-                model.addAttribute("status",e.status());
                 model.addAttribute("message",e.getMessage());
                 return "error-template";
             } else {
