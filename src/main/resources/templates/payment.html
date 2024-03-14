@@ -8,6 +8,10 @@
 <body>
 <div class="container" style="margin-top: 15px">
     <form method="post" th:href="@{/payments}" th:object="${paymentBodyRequest}" class="row g-3">
+        <div class="alert alert-warning" role="alert" th:if="${#fields.hasErrors('result.amount')}" >
+            <span th:errors="*{result.amount}"></span>
+        </div>
+
         <div class="col-3">
             <label for="currency" class="form-label">Currency</label>
 <!--            <input type="text" class="form-control" th:field="*{result.currency}" id="currency" placeholder="EUR">-->
@@ -15,7 +19,6 @@
                 <option th:each="cur : ${currencies}" th:value="${cur}" th:text="${cur}"></option>
             </select>
         </div>
-
         <div class="col-3">
             <label for="amount" class="form-label">Amount</label>
             <input type="number" class="form-control" th:field="*{result.amount}" id="amount" placeholder="1000">

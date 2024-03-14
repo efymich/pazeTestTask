@@ -1,13 +1,13 @@
 package com.nikolaev.testApiApp.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.validation.Valid;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.nikolaev.testApiApp.model.Result;
 
@@ -20,6 +20,8 @@ import com.nikolaev.testApiApp.model.Result;
 public class PaymentApiDTO {
 
     Integer status;
+
+    @Valid
     Result result;
 
     @Autowired
