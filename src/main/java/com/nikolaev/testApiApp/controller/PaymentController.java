@@ -53,7 +53,7 @@ public class PaymentController {
             return "redirect:" + response.getResult().getRedirectUrl();
         } catch (FeignException e) {
             if (e.status() == HttpStatus.BAD_REQUEST.value() || e.status() == HttpStatus.UNAUTHORIZED.value()) {
-                model.addAttribute("message",e.getMessage());
+                model.addAttribute("message", e.getMessage());
                 return "error-template";
             } else {
                 e.getStackTrace();
