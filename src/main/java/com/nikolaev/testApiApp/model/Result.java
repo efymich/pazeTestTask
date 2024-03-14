@@ -3,7 +3,6 @@ package com.nikolaev.testApiApp.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -18,7 +17,7 @@ import org.springframework.stereotype.Component;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Result {
     String id;
-    String paymentType = "DEPOваSIT";
+    String paymentType = "DEPOSIT";
     String state;
     String paymentMethod = "BASIC_CARD";
 
