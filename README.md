@@ -14,7 +14,7 @@
 
 * Склонировать проект из репозитория <https://github.com/efymich/pazeTestTask>
 * Для IntelliJ IDEA Community edition создать новую конфигурацию со следующими параметрами
-![img.png](img.png)
+![img.png](src/main/resources/static/img.png)
 * Запустить
 
 ## Эксплуатация:
