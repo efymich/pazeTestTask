@@ -1,0 +1,10 @@
+spring:
+  application:
+    name:
+      testApiApp
+app:
+  token: cAmmvalAikARkB81fgxgMtnMbEdNbuWa
+  currencies: EUR,USD,JPY,GBP,RUB
+logging:
+  level:
+    root: info

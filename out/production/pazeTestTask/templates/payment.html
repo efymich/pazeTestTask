@@ -7,23 +7,23 @@
 </head>
 <body>
 <div class="container" style="margin-top: 15px">
-    <form method="post" th:action="@{/pay}" th:object="${requestDTO}" class="row g-3">
-        <div class="alert alert-warning" role="alert" th:if="${#fields.hasErrors('currency')}" >
-            <span th:errors="*{currency}"></span>
+    <form method="post" th:href="@{/payments}" th:object="${paymentBodyRequest}" class="row g-3">
+        <div class="alert alert-warning" role="alert" th:if="${#fields.hasErrors('result.currency')}" >
+            <span th:errors="*{result.currency}"></span>
         </div>
-        <div class="alert alert-warning" role="alert" th:if="${#fields.hasErrors('amount')}" >
-            <span th:errors="*{amount}"></span>
+        <div class="alert alert-warning" role="alert" th:if="${#fields.hasErrors('result.amount')}" >
+            <span th:errors="*{result.amount}"></span>
         </div>
 
         <div class="col-3">
             <label for="currency" class="form-label">Currency</label>
-            <select id="currency" class="form-select" th:field="*{currency}">
+            <select id="currency" class="form-select" th:field="*{result.currency}">
                 <option th:each="cur : ${currencies}" th:value="${cur}" th:text="${cur}"></option>
             </select>
         </div>
         <div class="col-3">
             <label for="amount" class="form-label">Amount</label>
-            <input type="text" class="form-control" th:field="*{amount}" id="amount" placeholder="1000">
+            <input type="text" class="form-control" th:field="*{result.amount}" id="amount" placeholder="1000">
         </div>
         <div class="col-12">
             <button type="submit" class="btn btn-primary">Pay</button>
